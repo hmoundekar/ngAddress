@@ -1,0 +1,96 @@
+<div class="conatainer">
+    <div class="card mb-3 mt-3">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Single Form Group</h1>
+                </div>
+            </div>
+            <form [formGroup]="addressForm">
+                <div class="row">
+                    <div class="col-md-2">
+                        <mat-checkbox class="example-margin" [(ngModel)]="checked" formControlName='addrCheck' required (change)='onCheckSelected(checked)'>Same Addr</mat-checkbox>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Current Addr" formControlName="current" [(ngModel)]='currAddr' required #current (ngModelChange)="addrChanged($event)">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Permanent Addr" formControlName="permanent" [(ngModel)]='permAddr' required>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="conatainer">
+    <div class="card mb-3">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Multiple Form Group</h1>
+                </div>
+            </div>
+            <form [formGroup]="addresses">
+                <div class="row">
+                    <div class="col-md-2">
+                        <input type="checkbox" [formControl]="isSameAddressControl"> Same address
+                    </div>
+                    <div class="col-md-10">
+                        <form [formGroup]="addresses">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ng-container formGroupName="sendingAddress">
+                                        Current address<br>
+                                        <div class="form-group">
+                                            <mat-form-field class="example-full-width">
+                                                <input matInput type="text" formControlName="street" placeholder="Street" autocomplete="off">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="form-group">
+                                            <mat-form-field class="example-full-width">
+                                                <input matInput type="text" formControlName="city" placeholder="City" autocomplete="off">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="form-group">
+                                            <mat-form-field class="example-full-width">
+                                                <input matInput type="text" formControlName="country" placeholder="Country" autocomplete="off">
+                                            </mat-form-field>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                                <div class="col-md-6">
+                                    <ng-container formGroupName="billingAddress">
+                                        Permanent address<br>
+                                        <div class="form-group">
+                                            <mat-form-field class="example-full-width">
+                                                <input matInput type="text" formControlName="street" placeholder="Street" autocomplete="off">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="form-group">
+                                            <mat-form-field class="example-full-width">
+                                                <input matInput type="text" formControlName="city" placeholder="City" autocomplete="off">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="form-group">
+                                            <mat-form-field class="example-full-width">
+                                                <input matInput type="text" formControlName="country" placeholder="Country" autocomplete="off">
+                                            </mat-form-field>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
